@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wholesale Order - AsianMix Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="scripts.js" defer></script>
+</head>
+<body onload="displayTime(); loadProducts();">
+    <header>
+        <img src="logo.png" alt="AsianMix Logo" class="logo">
+        <h1>Wholesale Order</h1>
+        <div id="time"></div>
+    </header>
+    <main>
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search products..." oninput="searchProducts()">
+            <button onclick="clearSearch()">Clear</button>
+        </div>
+        <div id="productTableContainer">
+            <table id="productTable">
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>PID</th>
+                        <th>Product Name</th>
+                        <th>PackSize</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </main>
+    <div class="bottom-buttons">
+        <button onclick="showPreview()">Preview</button>
+        <button id="topButton" onclick="scrollToTop()">Top &#x25B2;</button>
+    </div>
+    <div id="previewOverlay" class="overlay">
+        <div class="overlay-content">
+            <button class="close-button" onclick="closePreview()"><img src="icons8-no-16.png" alt="Close"></button>
+            <br>
+            <div id="previewTableContainer">
+                <table id="previewTable">
+                    <thead>
+                        <tr>
+                            <th>PID</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div id="noDataMessage" class="no-data-message">No data selected</div>
+            </div>
+            <button class="save-pdf-button" onclick="savePreviewToPDF()">Save to PDF</button>
+        </div>
+    </div>
+</body>
+</html>
